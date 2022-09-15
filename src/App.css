@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+  padding: 0 15px ;
+}
+.table {
+  border: 1px solid #000;
+}
+.table .tr{
+  display: flex;
+}
+
+.table .tr .th, .td{
+  padding: 5px;
+  flex: 1;
+  text-align: left;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  text-overflow: ellipsis;
+}
+
+.table .tr .th{
+  font-weight: 600;
+}
+
+.card .card-header{
+  border: 1px solid #d5d5d5;
+  border-radius: 4px 4px 0 0;
+  border-width: 1px 1px 0 1px;
+  background-color: #739cf3c7;
+  padding: 5px;
+}
+.card .card-body{
+  border: 1px solid #d5d5d5;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 4px 4px ;
+  padding: 5px;
+}
+
+.form-group{
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.form-group .form-label{
+  font-weight: 400;
+  min-width: 150px;
+  text-align: left;
+}
+
+.mt-1{
+  margin-top: 10px;
+}
+
+.ml-1{
+  margin-left: 10px;
+}
+
+button{
+  cursor: pointer;
+  background-color: #739cf3c7;
+  border: 1px solid #739cf3c7;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+button.secondary{
+  background-color: #fff;
+}
