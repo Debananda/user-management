@@ -6,7 +6,6 @@ const UserDetails = ({selectedUser, save}) => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     useEffect(()=>{
-        console.log(selectedUser);
         if(selectedUser !== undefined){
           setName(selectedUser.name)
           setUserName(selectedUser.username)

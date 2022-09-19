@@ -1,11 +1,14 @@
 import './App.css';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useContext } from 'react';
 import UserRow from './userRow';
 import UserDetails from './UserDetails';
+import { AppContext } from './AppContext';
 
 function App() {
   const [users, setUsers]=useState([]);
   const [selectedUser, setSelectedUser]=useState();
+  const appContext = useContext(AppContext);
+  console.log(appContext)
   useEffect(()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(data => data.json())
@@ -44,7 +47,7 @@ function App() {
           <UserRow user={user} key={index} onClick={onRowSelection}/>
         ))}
       </div>
-      <UserDetails selectedUser={selectedUser} save={saveUserDetails}/>
+      <UserDetails selectedUser={selectedUser} save={saveUserDetails} />
     </div>
   );
 }
