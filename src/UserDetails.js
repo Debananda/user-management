@@ -6,8 +6,14 @@ const UserDetails = ({selectedUser, save}) => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     useEffect(()=>{
-        console.log('here');
-    });
+        console.log(selectedUser);
+        if(selectedUser !== undefined){
+          setName(selectedUser.name)
+          setUserName(selectedUser.username)
+          setEmail(selectedUser.email)
+          setPhoneNumber(selectedUser.phone)
+        }
+    }, [selectedUser]);
     const saveUserDetails = (event) => {
         event.preventDefault();
         save({
@@ -15,7 +21,7 @@ const UserDetails = ({selectedUser, save}) => {
                 username: userName, 
                 email:email, 
                 phone: phoneNumber
-            });
+            }, selectedUser ? selectedUser.id: undefined);
         resetUserDetails();
     }
     const changeName = (event) => {

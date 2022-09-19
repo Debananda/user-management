@@ -5,7 +5,7 @@ import UserDetails from './UserDetails';
 
 function App() {
   const [users, setUsers]=useState([]);
-  const [selectedUser, setSelectedUser]=useState([]);
+  const [selectedUser, setSelectedUser]=useState();
   useEffect(()=>{
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(data => data.json())
@@ -13,11 +13,21 @@ function App() {
       setUsers(response)
     })
   }, []);
-  const saveUserDetails = useCallback((userDetails) => {
-    setUsers(users => {return [...users, userDetails]})
+  const saveUserDetails = useCallback((userDetails, selectedUserId) => {
+    if(selectedUserId === undefined)
+    {setUsers(usrs => {return [...usrs, userDetails]})}
+    else{
+      setUsers(usrs => usrs.map((u) => {
+        if(u.id === selectedUserId){
+          return{...u, ...userDetails};
+        }
+        return u;
+      }))
+    }
   }, []);
   const onRowSelection = useCallback((user)=>{
-    setSelectedUser(user)
+    setSelectedUser(user);
+    // console.log(user)
   }, []);
   return (
     <div className="App">
